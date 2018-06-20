@@ -1,0 +1,50 @@
+<configs>
+	<!--  This tells SDX to add to the blocks.xml -->
+	<config name="blocks">	
+		<!-- This tells SDX to add the following block to the bottom of the block list -->
+		<append xpath="/blocks">	
+			<block id="1623" name="cellarEntrance">
+				<property name="Class" value="DoorSecure" />
+				<property name="Material" value="MrConcrete" />
+				<property name="Shape" value="ModelEntity" />
+				<property name="Collide" value="movement,melee,rocket,bullet,arrow" />
+				<property name="Tag" value="Door" />
+				<property name="Place" value="TowardsPlacer" />
+				<property name="PlaceEverywhere" value="true" />
+				<property name="Model" value="#cellarEntrance?CellarEntrance" />
+				<property name="ModelOffset" value="0,0,0" />
+				<property name="MultiBlockDim" value="4,1.5,4" />
+				<property name="PassThroughDamage" value="true" />
+				<property name="LightOpacity" value="1" />
+				<property name="Shape" value="ModelEntity" />
+				<property name="MaxDamage" value="2500" />
+				<property name="ImposterExchange" value="imposterCTRPlate" param1="35" />
+				<property name="OpenSound" value="open_garage_door" />
+				<property name="CloseSound" value="close_garage_door" />
+				<property name="CustomIcon" value="ui_game_symbol_cellar_entrance" />
+				<property name="RepairItems">
+					<property name="forgedIron" value="10" />
+					<property name="concreteMix" value="30" />
+				</property>
+				<drop event="Harvest" name="rockSmall" count="15,25" prob="0.5" tool_category="harvestingTools" />
+				<drop event="Harvest" name="rockSmall" count="25,35" prob="1" tool_category="Disassemble" />
+				<drop event="Harvest" name="scrapIron" count="20,30" prob="1" tool_category="Disassemble" />
+				<drop event="Harvest" name="forgedIron" count="12,17" prob="0.25" tool_category="Disassemble" />
+				<drop event="Destroy" count="0" />
+				<drop event="Fall" name="destroyedStone" count="9" prob="0.16" stick_chance="1" />
+				<property name="Group" value="Building" />
+				<property name="DescriptionKey" value="cellarEntranceGroupDesc" />
+			</block>
+		</append>
+	</config>
+	
+	<!-- Adding a new recipe for the mod -->
+	<config name="recipes">
+		<append xpath="/recipes" >
+			<recipe name="cellarEntrance" count="1" craft_area="workbench" material_based="true" craft_time="240">
+				<ingredient name="concreteMix" count="300" />
+				<ingredient name="forgedIron" count="100" />
+			</recipe>
+		</append>
+	</config>
+</configs>
